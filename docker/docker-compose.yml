@@ -8,10 +8,10 @@ services:
     env_file:
       - ./php5.6/.env
     extra_hosts:
-      - "api.host.com:10.8.40.112"
-      - "api.matcher.com:10.8.40.112"
-      - "lm-mock.dev.com:10.8.40.112"
-      - "hf.dev.com:10.8.40.112"
+      - "api.host.com:172.16.38.148"
+      - "api.matcher.com:172.16.38.148"
+      - "lm-mock.dev.com:172.16.38.148"
+      - "hf.dev.com:172.16.38.148"
 
   php7.1:
     image: daishun/php:7.1-fpm
@@ -21,10 +21,17 @@ services:
     env_file:
       - ./php7.1/.env
     extra_hosts:
-      - "api.host.com:10.8.40.112"
-      - "api.matcher.com:10.8.40.112"
-      - "lm-mock.dev.com:10.8.40.112"
-      - "hf.dev.com:10.8.40.112"
+      - "api.host.com:172.16.38.148"
+      - "api.matcher.com:172.16.38.148"
+      - "lm-mock.dev.com:172.16.38.148"
+      - "hf.dev.com:172.16.38.148"
+
+  python:
+    build: ./python
+    volumes:
+      - ../:/usr/src/app
+    env_file:
+      - ./python/.env
 
   nginx:
     image: nginx:1.12-alpine
